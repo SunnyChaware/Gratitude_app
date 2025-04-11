@@ -1,15 +1,18 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Navigation from './Components/Navigation.jsx'
+import Settings from './Pages/Settings';
 
 function App() {
 
   return (
     <>
       <div>
-        hello ji!
+        <Navigation />
       </div>
+      <Routes>
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
     </>
   )
 }
