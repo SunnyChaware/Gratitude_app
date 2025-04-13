@@ -1,1 +1,4 @@
 @import "tailwindcss";
+body {
+  background: linear-gradient(to bottom, white 40%, rgb(234, 255, 234));
+}
