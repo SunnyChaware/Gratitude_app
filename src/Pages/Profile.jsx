@@ -68,7 +68,7 @@ import React from 'react';
 
 function Profile() {
   return (
-    <div className="p-4">
+    <div className="p-4 h-screen flex flex-col items-center justify-center">  
       <h1 className="text-2xl font-bold">Profile</h1>
       <p>Manage your Profile here.</p>
     </div>
