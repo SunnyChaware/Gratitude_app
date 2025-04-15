@@ -13,21 +13,25 @@ function Landing() {
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">Show Gratitude Daily <br/></h1>
                     <span className="text-base md:text-lg mb-8 text-gray-500">Your journey to a more grateful life starts here.</span><br /><br />
                     <div className='flex flex-col md:flex-row items-center md:justify-start justify-center gap-4'>
-                      <button
-                        type="button"
-                        className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300
-                        font-medium rounded-lg text-sm w-40 h-10 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-                      >
-                        Get Started 
-                      </button>
-                      <button
-                        type="button"
-                        className="w-40 h-10 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg 
-                        border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-gray-100
-                        dark:focus:ring-gray-700 dark:border-gray-600 dark:hover:text-green-700 dark:hover:bg-transparent"
-                       >
-                        Sign Up
-                      </button>
+                      <Link to="/login">
+                        <button
+                          type="button"
+                          className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300
+                          font-medium rounded-lg text-sm w-40 h-10 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                        >
+                          Get Started 
+                        </button>
+                      </Link>
+                      <Link to="/signup">
+                        <button
+                          type="button"
+                          className="w-40 h-10 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg 
+                          border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-gray-100
+                          dark:focus:ring-gray-700 dark:border-gray-600 dark:hover:text-green-700 dark:hover:bg-transparent"
+                        >
+                          Sign Up
+                        </button>
+                      </Link>
                     </div>
                 </div>
             </div>
