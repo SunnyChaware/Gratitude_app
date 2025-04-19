@@ -1,67 +1,72 @@
-import { React, useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect, useRef } from "react";
 
 function Navigation() {
-  const [showProfile, setShowProfile] = useState(false);
-  const popoverRef = useRef(null);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (popoverRef.current && !popoverRef.current.contains(event.target)) {
-        setShowProfile(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+    const toggleDropdown = () => {
+        setDropdownOpen((prev) => !prev);
     };
-  }, []);
 
-return (
-    <>
-        <nav className="flex justify-between items-center p-4 fixed top-0 w-full z-10" >
-            <div className=" text-2xl font-bold px-20 text-black">
-                <Link to="/">Gratitude</Link>
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setDropdownOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    return ( 
+        <>
+        <nav className="flex justify-between items-center p-4 px-7 top-0 w-full z-10 bg-white shadow-md sticky">
+            <Link to="/" className="flex items-center">
+                <img src="vite.svg" alt="Logo" className="h-8 w-8" />
+                <span className="mx-2 text-xl font-bold text-black">Gratitude</span>
+            </Link>
+            <div className="hidden md:flex">
+                <Link to="/add-gratitude" className="mx-4 text-sm font-medium text-gray-700 hover:text-emerald-600">Journal</Link>
+                <Link to="/setting" className="mx-4 text-sm font-medium text-gray-700 hover:text-emerald-600">Setting</Link>
             </div>
-            <div className="text-black text-2xl flex items-center px-20">
-                {/* Avatar with popover */}
-                {/* <div className="relative px-5">
-                    <img
-                        src="pic.jpg"
-                        alt="User Avatar"
-                        className="rounded-full cursor-pointer  w-9 h-9"
-                        onClick={() => setShowProfile(!showProfile)}
-                    />
-                    {showProfile && (
-                        <div
-                            ref={popoverRef}
-                            className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10"
+            <div className="relative" ref={dropdownRef}>
+                <button 
+                    onClick={toggleDropdown} 
+                    className="text-sm font-medium text-gray-700 hover:text-emerald-600"
+                >
+                    <FontAwesomeIcon icon={faUser} />
+                </button>
+                {dropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
+                        <Link 
+                            to="/profile" 
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         >
-                            <ul className="py-2 text-gray-700">
-                                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                    <Link to="/profile" className="block w-full h-full">Profile</Link>
-                                </li>
-                                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                    Logout
-                                </li>
-                            </ul>
-                        </div>
-                    )}
-                </div> */}
-
-                {/* sign up Button */}
-                <Link to="/settings" className="text-black">
-                    <FontAwesomeIcon icon={faCog} />
-                </Link>
+                            Profile
+                        </Link>
+                        <Link 
+                            to="/settings" 
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                            Settings
+                        </Link>
+                        <button 
+                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                            Logout
+                        </button>
+                    </div>
+                )}
             </div>
         </nav>
-        {/* Add a spacer div to prevent content from being hidden behind the fixed navbar */}
-        <div className="pt-16"></div>
-    </>
-);
+        </>
+    );
 }
 
 export default Navigation;
