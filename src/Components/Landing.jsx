@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from './Navigation';
 
 
 function Landing() {
@@ -27,8 +26,7 @@ function Landing() {
                         <button
                           type="button"
                           className="w-40 h-10 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg 
-                          border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-gray-100
-                          dark:focus:ring-gray-700 dark:border-gray-600 dark:hover:text-green-700 dark:hover:bg-transparent"
+                          border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:z-1 dark:border-gray-600 dark:hover:text-green-700 dark:hover:bg-transparent"
                         >
                           Sign Up
                         </button>
