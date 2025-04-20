@@ -1,6 +1,6 @@
 import Card from "./Card";
 import Navigation from "./Navigation";
-import { Button } from "../components/ui/button";
+import { Button } from "../ui/button";
 
 function AddGratitude() {
     return ( 
