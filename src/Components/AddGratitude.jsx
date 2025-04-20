@@ -1,6 +1,5 @@
 import Card from "./Card";
 import Navigation from "./Navigation";
-// Change this import to match the exact path and case
 import { Button } from "../components/ui/button";
 
 function AddGratitude() {
