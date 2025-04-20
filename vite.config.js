@@ -12,7 +12,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'), // Ensure 'src' is correctly resolved
-      '@shadcn/ui': path.resolve(__dirname, 'node_modules/@shadcn/ui'), // Add alias for ShadCN
     },
   },
 })

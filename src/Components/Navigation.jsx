@@ -33,7 +33,7 @@ function Navigation() {
             </Link>
             <div className="hidden md:flex">
                 <Link to="/add-gratitude" className="mx-4 text-sm font-medium text-gray-700 hover:text-emerald-600">Journal</Link>
-                <Link to="/setting" className="mx-4 text-sm font-medium text-gray-700 hover:text-emerald-600">Setting</Link>
+                <Link to="/settings" className="mx-4 text-sm font-medium text-gray-700 hover:text-emerald-600">Setting</Link>
             </div>
             <div className="relative" ref={dropdownRef}>
                 <button 
